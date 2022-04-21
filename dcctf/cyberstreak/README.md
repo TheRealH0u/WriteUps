@@ -1,0 +1,18 @@
+## Its using firebase jwt
+eyJ1c2VybmFtZSI6InVzZXIifQ.YitzTQ.SaF_7T8HySndNzD6anbmXELmnhk
+
+eyJ1c2VybmFtZSI6ImFkbWluIn0
+
+eyJ1c2VybmFtZSI6ImFkbWluIn0.Yit63w.20niF6NBc83P2GVF8kvC8Jk6EhA
+
+
+eyJ1c2VybmFtZSI6ImFkbWluIiwiYWxnIjoibm9uZSJ9.YitzTQ.SaF_7T8HySndNzD6anbmXELmnhk
+
+
+flag = dvCTF{80b8d1A92G6a13a98Dc7b546a7a7Y35}
+
+# 2.0
+
+80b8d1A92G6a13a98Dc7b546a7a7Y35
+
+eyJ1c2VybmFtZSI6Im5ldyJ9.Yiznaw.2D5SZvI_8gjfphgGdDRRTHzkdNA
