@@ -1,0 +1,22 @@
+name: insotransfer
+
+services:
+  app:
+    build: .
+    read_only: true
+    tmpfs:
+      - /upload/
+      - /tmp/
+    volumes:
+      - ./app:/app
+    restart: always
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:z
+    depends_on:
+      - app
+    restart: always
+

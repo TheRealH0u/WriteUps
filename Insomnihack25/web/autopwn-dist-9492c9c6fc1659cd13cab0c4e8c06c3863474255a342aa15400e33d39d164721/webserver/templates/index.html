@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoPWN</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha256-MBffSnbbXwHCuZtgPYiwMQbfE7z+GOZ7fBPCNB06Z98=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    integrity="sha256-SD4b9urSXVSzdFbPDlHqAiDZ3gPva6Ki2MPzSkvDTBc=" crossorigin="anonymous">
+  <link href="/static/css/style.css" rel="stylesheet" />
+  <link rel="shortcut icon" href="static/favicon.ico" />
+</head>
+
+<body>
+  <main>
+    <div class="bd-masthead mb-3" id="content">
+      <div class="container-xxl bd-gutter">
+        <div class="col-md-8 mx-auto text-center">
+          <span
+            class="d-flex flex-column flex-lg-row justify-content-center align-items-center mb-4 text-dark lh-sm text-decoration-none">
+            <strong class="d-sm-inline-block p-2 me-2 mb-2 mb-lg-0 rounded-3 masthead-notice">New in v1.33.7</strong>
+            <span class="text-muted">Now using Nuclei for increased coverage!</span>
+          </span>
+          <div>
+            <i class="bi bi-hammer" style="font-size: 10rem; color: white"></i>
+          </div>
+          <h1 class="mb-3 fw-semibold lh-1">AutoPWN</h1>
+          <form id="scan-form"
+            class="d-flex flex-column flex-lg-row align-items-md-stretch justify-content-md-center gap-3 mb-4">
+            <div class="col-auto input-group" style="max-width: 320px;">
+              <span class="input-group-text">http://</span>
+              <input type="input" class="form-control form-control-lg" style="height: 100%;" required id="query-input"
+                value="{{client_ip}}" readonly>
+              <span class="input-group-text">:1337</span>
+            </div>
+            <!-- select list with all values from array template_list -->
+            <div class="col-auto">
+              <select class="form-select form-select-sm" style="height: 100%;" id="template-select" required>
+                <option value="" selected disabled>Select a template</option>
+                {% for template in template_list %}
+                <option value="{{template}}">{{template}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <button
+              class="btn btn-lg bd-btn-lg btn-bd-primary d-flex align-items-center justify-content-center fw-semibold"
+              type="submit" id="scan-button">
+              Scan
+            </button>
+          </form>
+          <div id="result-div" class="d-flex flex-column flex-lg-row justify-content-md-center mb-4 invisible"
+            style="height: 57px;">
+            <div class="bd-code-snippet">
+              <div class="highlight">
+                <pre id="result-content" style="white-space: pre-wrap;">No results</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha256-gvZPYrsDwbwYJLD5yeBfcNujPhRoGOY831wwbIzz3t0=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"
+    integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+  <script src="/static/js/script.js"></script>
+</body>
+
+</html>

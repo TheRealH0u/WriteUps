@@ -1,0 +1,42 @@
+services:
+  webserver:
+    image: webserver
+    restart: unless-stopped
+    build:
+      context: ./webserver
+      dockerfile: ./Dockerfile
+      args:
+        - TEMPLATES_VERSION=10.0.0
+    ports:
+      - 443:443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+      - ./cert:/cert
+    networks:
+      - default
+    environment:
+      - FLASK_SECRET_KEY=redacted_secret_key
+      - REDIS_URL=redis://:redacted_redis_password@redis:6379
+    depends_on:
+      - redis
+  
+  # Build the scanner image that will be deployed by the webserver
+  scanner:
+    image: autopwn_scanner
+    build:
+      context: ./scanner
+      dockerfile: ./Dockerfile
+      args:
+        - NUCLEI_VERSION=3.3.10
+        - TEMPLATES_VERSION=10.0.0
+        - PLAYWRIGHT_VERSION=1.47.2
+    platform: linux/amd64
+    restart: "no"
+    environment:
+      - ONLY_BUILD=true
+
+  redis:
+    image: bitnami/redis:7.2
+    restart: unless-stopped
+    environment:
+      - REDIS_PASSWORD=redacted_redis_password

