@@ -1,0 +1,1 @@
+We had to use the https://github.com/lwthiker/curl-impersonate to impersonate a HTTP/2 browser. Its all explained in the repository.
